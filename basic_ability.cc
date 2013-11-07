@@ -2,8 +2,14 @@
 #include <stdio.h>
 #include <math.h>
 #include <vector>
+#include <fstream>
 using namespace std;
 #define MAX 1024
+
+ofstream outStream;
+
+//outStream.open("tmpsave.txt");
+
 void ascii_count(){
     int space=0,table=0,enter=0;
     char c;
@@ -105,6 +111,53 @@ void perm(char *save,int *tmp,int n){
 
     }
 }
+int facSum(int n){
+    int sum=0;
+    for(int i = 1; i < n ; ++ i){
+        if(n%i == 0)
+            sum += i;
+    }
+    return sum;
+}
+void friendly(){
+    int b=0;
+    for(int i = 2 ; i < 3000 ; ++i){
+        b = facSum(i);
+        if((facSum(b) == i) && b != i && b>1 && b <= 3000){
+            cout<<"<"<<i<<" "<<b<<">"<<endl;
+        }
+    }
+}
+int squareCount = 0;
+vector<int> squareVec;
+int isSquare(int n){
+    int i = sqrt(n);
+    if(i*i == n) return 1;
+    else return 0;
+}
+void fourSquare(int n){
+    if(isSquare(n)&&squareCount<4){
+        flag = 1;
+        squareVec.push_back(sqrt(n));
+        for(vector<int>::iterator iter = squareVec.begin(); iter != squareVec.end();++iter)
+            cout<<*iter<<" ";
+        cout<<endl;
+        squareVec.clear();
+    }
+    else if(flag == 0 && squareCount<4){
+        for(int i=1;i<n&&flag==0;++i)
+            if(isSquare(i)){
+           //     outStream<<squareCount<<"---"<<i<<endl;
+                squareVec.push_back(sqrt(i));
+                squareCount++;
+                fourSquare(n-i);
+                squareCount--;
+                if(squareVec.size() != 0) squareVec.pop_back();
+            }
+
+    }
+
+}
 int main(){
     int n;
     char c;
@@ -191,6 +244,17 @@ int main(){
                     tmp[j]=0;
                     vec.pop_back();
                 }
+            }
+            break;
+        case 12:
+            friendly();
+            break;
+        case 13:
+            outStream.open("tmpsave.txt");
+            while(cin>>n){
+                flag = 0;
+                squareCount = 0;
+                fourSquare(n);
             }
             break;
         default:break;
