@@ -46,8 +46,7 @@ void deTobi(){
          i=0;
     }
 }
-void reverse(){
-    char c;
+void reverse     char c;
     //scanf("%c",&c);
     //cin>>c;//cin会自动过滤掉空格换行
     c = cin.get();
