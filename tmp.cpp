@@ -1,4 +1,6 @@
 #include <iostream>
+#include <math.h>
+#include <unistd.h>
 #include <vector>
 #include <stack>
 using namespace std;
@@ -36,14 +38,41 @@ void fun2(int* p1,int* p2){
 void fun3(int a[]){
     cout<<sizeof(a)<<endl;
 }
+void func4(){
+	for(int i=0;i< pow(10,4);++i){
+		cout<<i<<endl;
+		sleep(1);
+	}
+	cout<<"done"<<endl;
+}
+class A{
+	public:
+		char a;
+		//double c;
+		//float b;
+		//virtual void func();
+};
+class B : public A{
+	public:
+		//int d;
+		int b;
+		/*void func(){
+		int c;
+		}*/
+};
 int main(){
      int a[] = {0,1,2,5,6,7,8,9};
      int b[10] = {1,2,3,4,5,6,7,8};
+	 string* str = new string[10];
+	 int *i[10]; 
+
      //fun2(a,b);
-     fun3(b);
-     cout<<sizeof(a)<<endl;
+//     fun3(b);
+  //   cout<<sizeof(a)<<endl;
      //cout<<NULL<<endl;
      //fun1();
-
+	func4();
+	 //cout<<sizeof(A)<<endl;
+	 //cout<<sizeof(B)<<endl;
      return 0;
 }

@@ -17,6 +17,9 @@ int A::getNum(){
 class B:public A{
     public:
         virtual int getNum();
+		void print(){
+			cout<<"this is B"<<endl;
+		}
 };
 int B::getNum(){
     return 20;
@@ -30,6 +33,8 @@ int main(){
     cout<<a.getNum()<<b.getNum();
     b.print();
     func(b);
+
+	//A* c = new B();
     return 0;
 
 }

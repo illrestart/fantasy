@@ -9,10 +9,11 @@ class derive:public base{
     public:
         derive(){cout<<"con1\n";}
         ~derive(){cout<<"decon1\n";}
+
 };
 int main(){
     derive * d = new derive();
-    //delete d;
+   // delete d;
     cout<<endl;
     base* b = d;
     delete b;
