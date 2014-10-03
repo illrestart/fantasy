@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <stack>
+#include <stdio.h>
 using namespace std;
 int foo(int x){
     return x&-x;
@@ -36,14 +37,34 @@ void fun2(int* p1,int* p2){
 void fun3(int a[]){
     cout<<sizeof(a)<<endl;
 }
+
+int isTrue(int t){
+    if(t)
+        cout<<"isTrue";
+    else
+        cout<<"isFalse";
+    return true;
+}
+void func5(char c[100]){
+    cout<<sizeof(c);
+}
+void func4(){
+    char c[] = "abcd";
+    char* p = c;
+    char c1[100] = {0};
+   // cout<<sizeof(c1)<<" "<<sizeof(p);
+    printf("%s %s %s",c,c);
+    //func5(p);
+}
 int main(){
      int a[] = {0,1,2,5,6,7,8,9};
      int b[10] = {1,2,3,4,5,6,7,8};
      //fun2(a,b);
-     fun3(b);
-     cout<<sizeof(a)<<endl;
-     //cout<<NULL<<endl;
+     //fun3(b);
+     //cout<<sizeof(a)<<endl;
+     ////cout<<NULL<<endl;
      //fun1();
-
+     //cout<<isTrue(-1);
+     func4();
      return 0;
 }
