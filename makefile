@@ -1,3 +1,10 @@
-ALL : 
-	g++ -o test datastructure.cpp sqlist.h
+obj=datastructure.o 
 
+test: $(obj)
+	g++ -o test $(obj)
+
+datastructure.o: sqlist.h
+
+
+clean:
+	rm $(obj)
